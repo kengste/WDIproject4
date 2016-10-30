@@ -1,17 +1,24 @@
 <nav>
-  <div class="container">
-    <ul class="main-menu">
-      <li><%= link_to "Home", root_path %></li>
-    <% if user_signed_in? %>
-      <span>Welcome, <%= current_user.first_name %>!</span>
-      <li>Client</li>
-      <li>Users</li>
-      <li>Appointments</li>
-      <li class="right"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+  <div class="ui pointing menu container">
+    <a class="item">
+      <%= link_to "Home", root_path %></a>
+      <a class="item">
+      <% if user_signed_in? %>Welcome,
+      <%= current_user.first_name %>!</a>
+      <a class="item"><%= link_to "Clients", clients_path %></a>
+      <a class="item">Users</a>
+      <a class="item">Appointments</a>
+      <a class="item">
+      <% if current_user.try(:admin?) %>
+      <%= link_to "Admin", rails_admin_path %>
+      <% end %>
+      </a>
+      <div class="right menu">
+      <a class="ui item"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></a>
     <% else %>
-      <li class="right"><%= link_to "Sign in", new_user_session_path %></li>
-      <li class="right"><%= link_to "Sign up", new_user_registration_path %></li>
+      <a class="ui item"><%= link_to "Sign in", new_user_session_path %></a>
+      <a class="ui item"><%= link_to "Sign up", new_user_registration_path %></a>
+    </div>
     <% end %>
-    </ul>
   </div>
 </nav>
