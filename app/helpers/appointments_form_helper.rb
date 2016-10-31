@@ -8,6 +8,15 @@ module AppointmentsFormHelper
     end
   end
 
+  def staff_fields(form, appointment, staff)
+    if staff 
+      output = [content_tag(:h3, "at #{staff.nickname}"), hidden_field_tag("appointment[staff_id]", staff.id)]
+      safe_join(output)
+    else
+      render partial: "staff_fields", locals: { f: form, appointment: appointment }
+    end
+  end
+
   def appointment_date(appointment)
     if appointment.appointment_time
       appointment.appointment_time.strftime("%m/%d/%Y")

@@ -22,4 +22,8 @@ module AppointmentsAttributeHelper
     options[appointment.duration.to_i]
   end
 
+  def show_staff(appointment)
+    content_tag(:p, "Associates: " + appointment.staff_name )
+  end
+
 end

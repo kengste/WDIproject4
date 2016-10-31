@@ -21,6 +21,6 @@
       <%= duration_minute_field("appointment[duration][min]", appointment) %>
     </p>
   </div>
-
+    <%= staff_fields(f, appointment, staff) %>
   <p><%= f.submit %></p>
 <% end %>

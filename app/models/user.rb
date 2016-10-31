@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :clients
   has_many :appointments
+  has_many :staffs
 
   def upcoming_appointments
     appointments.order(appointment_time: :desc).select { |a| a.appointment_time > (DateTime.now) }

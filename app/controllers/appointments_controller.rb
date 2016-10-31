@@ -3,6 +3,8 @@ class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
   before_action :set_appointments, only: [:index, :show, :edit]
   before_action :set_client, only: [:index, :new, :edit]
+  before_action :set_staff, only: [:index, :new, :edit]
+
 
   def index
     @upcoming_appointments = current_user.upcoming_appointments
@@ -51,6 +53,10 @@ class AppointmentsController < ApplicationController
     @client = current_user.clients.find_by(id: params[:client_id])
   end
 
+  def set_staff
+    @staff = current_user.staffs.find_by(id: params[:staff_id])
+  end
+
     def set_appointment
     @appointment = current_user.appointments.find_by(id: params[:id])
     if @appointment.nil?
@@ -64,7 +70,7 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.require(:appointment).permit(:client_id, client_attributes: [:name], appointment_time: [:date, :hour, :min], duration: [:hour, :min])
+    params.require(:appointment).permit(:client_id, :staff_id, staff_attributes: [:first_name], client_attributes: [:name], appointment_time: [:date, :hour, :min], duration: [:hour, :min])
   end
 
 end

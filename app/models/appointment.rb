@@ -5,7 +5,7 @@ class Appointment < ApplicationRecord
 
   accepts_nested_attributes_for :client
   accepts_nested_attributes_for :staff
-  
+
   def start_time
     self.appointment_time
   end
@@ -18,9 +18,20 @@ class Appointment < ApplicationRecord
     client.name
   end
 
+  def staff_name
+    staff.first_name if staff
+  end
+
   def client_attributes=(atts)
     if atts[:name] != ""
       self.client = self.user.clients.find_or_create_by(atts)
+    end
+  end
+
+  def staff_attributes=(atts)
+    if atts[:first_name] != ""
+      staff = self.user.staffs.find_or_create_by(atts)
+      self.staff = staff
     end
   end
 

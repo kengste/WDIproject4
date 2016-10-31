@@ -9,6 +9,7 @@
     <p><%= client_phone(client) %> </p>
   </div>
   <div class="column">
-    <p>Appointment </p>
+    <p><%= appointment_count(client) %></p>
   </div>
-</div>
+  <%= link_to "Edit", edit_client_path(client) %>, <%= link_to "Delete", client, method: :delete, data: { confirm: "Are you sure you want to delete this client?" } %>
+  </div>
