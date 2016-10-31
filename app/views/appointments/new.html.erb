@@ -1,0 +1,9 @@
+<div class="ui stackable four column doubling grid container">
+  <div class="column">
+    <h1>New Appointment</h1>
+    <%= render partial: 'form', locals: { appointment: @appointment, client: @client } %>
+  </div>
+  <div class="col-md-8">
+    <%= add_weekly_calendar(@appointments) %>
+  </div>
+</div>

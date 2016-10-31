@@ -7,9 +7,9 @@
       <%= current_user.first_name %>!</a>
       <a class="item"><%= link_to "Clients", clients_path %></a>
       <a class="item">Users</a>
-      <a class="item">Appointments</a>
+      <a class="item"><%= link_to "Appointments", appointments_path %></a>
       <a class="item">
-      <% if current_user.try(:admin?) %>
+      <% if current_user.has_role? :admin %>
       <%= link_to "Admin", rails_admin_path %>
       <% end %>
       </a>
