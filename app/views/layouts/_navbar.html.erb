@@ -9,7 +9,7 @@
       <a class="item">Users</a>
       <a class="item"><%= link_to "Appointments", appointments_path %></a>
       <a class="item">
-      <% if current_user.has_role? :admin %>
+      <% if current_user.try(:admin?) %>
       <%= link_to "Admin", rails_admin_path %>
       <% end %>
       </a>

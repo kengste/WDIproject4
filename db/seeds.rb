@@ -13,6 +13,6 @@
 # Client.create(id: 6, name: 'ABCH Pte Ltd', phone_number: '41831000', email: 'abch@gmail.com', user_id: 1)
 # Client.create(id: 7, name: 'ABCI Pte Ltd', phone_number: '71831000', email: 'abci@gmail.com', user_id: 1)
 # Client.create(id: 8, name: 'ABCJ Pte Ltd', phone_number: '91831000', email: 'abcj@gmail.com', user_id: 1)
-# [:admin, :manager, :employee].each do |role|
+# [:admin, :manager].each do |role|
 #   Role.where({ name: role }, without_protection: true).first_or_create
 # end
