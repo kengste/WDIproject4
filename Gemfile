@@ -23,6 +23,7 @@ gem 'cancancan', '~> 1.10'
 gem 'rolify'
 gem "simple_calendar"
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
+gem "rails-erd"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

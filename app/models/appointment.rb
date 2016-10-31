@@ -1,9 +1,11 @@
 class Appointment < ApplicationRecord
   belongs_to :user
   belongs_to :client
+  belongs_to :staff
 
   accepts_nested_attributes_for :client
-
+  accepts_nested_attributes_for :staff
+  
   def start_time
     self.appointment_time
   end
@@ -21,7 +23,7 @@ class Appointment < ApplicationRecord
       self.client = self.user.clients.find_or_create_by(atts)
     end
   end
-  
+
   def appointment_time=(time)
     if time.is_a?(Hash)
       self[:appointment_time] = parse_datetime(time)

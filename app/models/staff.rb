@@ -3,4 +3,6 @@ class Staff < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  has_many :appointments, dependent: :destroy
+  has_many :clients, through: :appointments
 end
