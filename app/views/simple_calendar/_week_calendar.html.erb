@@ -24,9 +24,7 @@
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
               <%= day.strftime("%e") %>
-              <% 52.times do %>
-                <div class="quarter"></div>
-              <% end %>
+              
               <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
                 <% capture_haml do %>
                   <% block.call day, sorted_events.fetch(day, []) %>

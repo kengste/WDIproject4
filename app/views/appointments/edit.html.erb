@@ -1,2 +1,12 @@
-<h1>Appointments#edit</h1>
-<p>Find me in app/views/appointments/edit.html.erb</p>
+<div class="row">
+  <div class="col-md-4">
+    <h1>Edit Appointment</h1>
+    <%= render partial: "form", locals: { appointment: @appointment, client: @client, staff: @staff } %>
+    <p>
+      <%= link_to "Delete", @appointment, method: :delete, data: { confirm: "Are you sure you want to delete this appointment?" } %>
+    </p>
+  </div>
+  <div class="col-md-8">
+    <%= add_weekly_calendar(@appointments) %>
+  </div>
+</div>

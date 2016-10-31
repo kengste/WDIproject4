@@ -18,130 +18,9 @@ td div {
 }
 
 .simple-calendar.weekly td {
-    height: 550px;
+    height: 350px;
     border: 1px solid black;
     position: relative;
-}
-
-.quarter {
-  font-size: 9px;
-  line-height: 7px;
-  background: clear;
-  content: "";
-  height: 10px;
-  width: 100%;
-  border-bottom: 1px dotted black;
-}
-.quarter:first-child {
-    border-top: 1px solid black;
-}
-
-.quarter:nth-child(4n) {
-  border-bottom: 1px solid black;
-}
-
-td .quarter:first-child:before {
-    content: "8 AM"
-}
-
-td .quarter:nth-child(3):before {
-    content: "8:30";
-}
-
-td .quarter:nth-child(5):before {
-    content: "9 AM"
-}
-
-td .quarter:nth-child(7):before {
-    content: "9:30";
-}
-
-td .quarter:nth-child(9):before {
-    content: "10 AM"
-}
-
-td .quarter:nth-child(11):before {
-    content: "10:30";
-}
-
-td .quarter:nth-child(13):before {
-    content: "11 AM"
-}
-
-td .quarter:nth-child(15):before {
-    content: "11:30";
-}
-
-td .quarter:nth-child(17):before {
-    content: "12 PM"
-}
-
-td .quarter:nth-child(19):before {
-    content: "12:30";
-}
-
-td .quarter:nth-child(21):before {
-    content: "1 PM"
-}
-
-td .quarter:nth-child(23):before {
-    content: "1:30";
-}
-
-td .quarter:nth-child(25):before {
-    content: "2 PM"
-}
-
-td .quarter:nth-child(27):before {
-    content: "2:30";
-}
-
-td .quarter:nth-child(29):before {
-    content: "3 PM"
-}
-
-td .quarter:nth-child(31):before {
-    content: "3:30";
-}
-
-td .quarter:nth-child(33):before {
-    content: "4 PM"
-}
-
-td .quarter:nth-child(35):before {
-    content: "4:30";
-}
-
-td .quarter:nth-child(37):before {
-    content: "5 PM"
-}
-
-td .quarter:nth-child(39):before {
-    content: "5:30";
-}
-
-td .quarter:nth-child(41):before {
-    content: "6 PM"
-}
-
-td .quarter:nth-child(43):before {
-    content: "6:30";
-}
-
-td .quarter:nth-child(45):before {
-    content: "7 PM"
-}
-
-td .quarter:nth-child(47):before {
-    content: "7:30";
-}
-
-td .quarter:nth-child(49):before {
-    content: "8 PM"
-}
-
-td .quarter:nth-child(51):before {
-    content: "8:30";
 }
 
 td .appointment {
@@ -202,7 +81,7 @@ form#new_appointment, form.edit_appointment {
         margin-top: 58px;
     }
 
-    .col-md-8 .simple-calendar .appointment {
+    .simple-calendar .appointment {
         width: 59%;
         margin-left: 26%;
         font-size: 60%;
@@ -213,7 +92,7 @@ form#new_appointment, form.edit_appointment {
     form#new_appointment, form.edit_appointment {
         margin-top: 20px;
     }
-    .col-md-8 .simple-calendar .appointment {
+    .simple-calendar .appointment {
         width: 53%;
         margin-left: 29%;
         font-size: 60%;

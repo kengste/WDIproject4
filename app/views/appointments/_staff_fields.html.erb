@@ -1,18 +1,6 @@
 <% if current_user.staffs.any? %>
 <div class="field">
-  <p>
     <%= f.label :staff_id %>
     <%= collection_select :appointment, :staff_id, current_user.staffs, :id, :first_name, {prompt: true } %>
-  </p>
 </div>
 <% end %>
-<p><% if current_user.staffs.any? %>
-  <% end %></p>
-<div class="field">
-  <p>
-    <%= f.fields_for :staff do |staff_atts| %>
-      <%= staff_atts.label :first_name %>
-      <%= staff_atts.text_field :first_name %>
-    <% end %>
-  </p>
-</div>

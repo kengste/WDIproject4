@@ -6,12 +6,3 @@
   </p>
 </div>
 <% end %>
-<p><% if current_user.clients.any? %>
-  <% end %>
-</p>
-<div class="field">
-  <%= f.fields_for :client do |ff| %>
-    <%= ff.label :name %>
-    <%= ff.text_field :name %>
-  <% end %>
-</div>

@@ -9,7 +9,7 @@ module AppointmentsFormHelper
   end
 
   def staff_fields(form, appointment, staff)
-    if staff 
+    if staff
       output = [content_tag(:h3, "at #{staff.nickname}"), hidden_field_tag("appointment[staff_id]", staff.id)]
       safe_join(output)
     else
@@ -27,19 +27,7 @@ module AppointmentsFormHelper
 
   def hour_selector(name, appointment)
     time_choices = {
-     "8 AM" => 8,
-     "9 AM" => 9,
-     "10 AM" => 10,
-     "11 AM" => 11,
-     "12 PM" => 12,
-     "1 PM" => 13,
-     "2 PM" => 14,
-     "3 PM" => 15,
-     "4 PM" => 16,
-     "5 PM" => 17,
-     "6 PM" => 18,
-     "7 PM" => 19,
-     "8 PM" => 20,
+     "8 AM" => 8
     }
     select_tag(name, options_for_select(time_choices, time_choices[appointment_hour(appointment)] ) )
   end
@@ -53,7 +41,7 @@ module AppointmentsFormHelper
   end
 
   def min_selector(name, appointment)
-    min_choices = ["00", "15", "30", "45"]
+    min_choices = ["00"]
     select_tag(name, options_for_select(min_choices, appointment_min(appointment) ) )
   end
 
@@ -67,20 +55,14 @@ module AppointmentsFormHelper
 
   def duration_hour_field(name, appointment)
     options = {
-      "0 hr" => "0",
-      "1 hr" => "3600",
-      "2 hr" => "7200",
-      "3 hr" => "10800"
+      "8 hr" => "32400"
     }
     select_tag(name, options_for_select(options, get_duration_hour(appointment) ) )
   end
 
   def duration_minute_field(name, appointment)
     options = {
-      "00 min" => "0",
-      "15 min" => "900",
-      "30 min" => "1800",
-      "45 min" => "2700"
+      "00 min" => "0"
     }
     select_tag(name, options_for_select(options, get_duration_min(appointment) ) )
   end
