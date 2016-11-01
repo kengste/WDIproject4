@@ -2,34 +2,32 @@
   <div class="ui pointing menu container">
 
       <% if user_signed_in? %>
-      <a class="item"><%= link_to "Home", root_path %></a>
-      <a class="item">Welcome, <%= current_user.first_name %>!</a>
-      <a class="item"><%= link_to "Clients", clients_path %></a>
-      <a class="item">Users</a>
-      <a class="item"><%= link_to "Appointments", appointments_path %></a>
-      <a class="item">
+      <span class="item"><%= link_to "Home", root_path %></span>
+      <span class="item"><%= "Welcome, " + current_user.first_name %>!</span>
+      <span class="item"><%= link_to "Clients", clients_path %></span>
+      <span class="item"><%= link_to "Associates", staffs_path %></span>
+      <span class="item"><%= link_to "Appointments", appointments_path %></span>
       <% if current_user.try(:admin?) %>
+      <span class="item">
       <%= link_to "Admin", rails_admin_path %>
+      </span>
       <% end %>
-      </a>
 
     <% elsif staff_signed_in? %>
-    <a class="item"><%= link_to "Home", root_path %></a>
-    <a class="item">Welcome, <%= current_staff.first_name %>!</a>
-    <a class="item"><%= link_to "Clients", clients_path %></a>
-    <a class="item">Employees</a>
-    <a class="item"><%= link_to "Appointments", appointments_path %></a>
-    <a class="item">
-    </a>
+    <span class="item"><%= link_to "Home", root_path %></span>
+    <span class="item">Welcome, <%= current_staff.first_name %>!</span>
+    <span class="item"><%= link_to "Clients", clients_path %></span>
+    <span class="item">Employees</span>
+    <span class="item"><%= link_to "Assignments", schedules_path %></span>
   <% end %>
   <div class="right menu">
   <% if user_signed_in? %>
-  <a class="ui item"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></a>
+  <span class="ui item"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></span>
   <% elsif staff_signed_in? %>
-  <a class="ui item"><%= link_to "Sign out", destroy_staff_session_path, method: :delete %></a>
+  <span class="ui item"><%= link_to "Sign out", destroy_staff_session_path, method: :delete %></span>
   <% else %>
-  <a class="ui item"><%= link_to "User Sign in", new_user_session_path %></a>
-  <a class="ui item"><%= link_to "Staff Sign in", new_staff_session_path %></a>
+  <span class="ui item"><%= link_to "User Sign in", new_user_session_path %></span>
+  <span class="ui item"><%= link_to "Staff Sign in", new_staff_session_path %></span>
   <% end %>
 
   </div>

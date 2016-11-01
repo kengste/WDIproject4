@@ -10,7 +10,7 @@ module AppointmentsFormHelper
 
   def staff_fields(form, appointment, staff)
     if staff
-      output = [content_tag(:h3, "at #{staff.nickname}"), hidden_field_tag("appointment[staff_id]", staff.id)]
+      output = [content_tag(:h3, "at #{staff.first_name}"), hidden_field_tag("appointment[staff_id]", staff.id)]
       safe_join(output)
     else
       render partial: "staff_fields", locals: { f: form, appointment: appointment }
@@ -55,7 +55,11 @@ module AppointmentsFormHelper
 
   def duration_hour_field(name, appointment)
     options = {
-      "8 hr" => "32400"
+      "1 day" => "32400",
+      "2 days" => "118800",
+      "3 days" => "205200",
+      "4 days" => "291600",
+      "5 days" => "378000"
     }
     select_tag(name, options_for_select(options, get_duration_hour(appointment) ) )
   end

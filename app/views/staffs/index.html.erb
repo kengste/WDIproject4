@@ -1,0 +1,18 @@
+<h1>Clients </h1>
+<%= @staffs.inspect %>
+<% if @staffs.any? %>
+<div class="ui stackable three column doubling grid container">
+  <div class="blue column">
+    <h3>Name</h3>
+  </div>
+  <div class="teal column">
+    <h3>Email</h3>
+  </div>
+  <div class="yellow column">
+    <h3>Appointments</h3>
+  </div>
+</div>
+<% else %>
+<p>No staffs yet.</p>
+<% end %>
+<%= render partial: "staff_index", collection: @staffs, as: :staff %>

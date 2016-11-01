@@ -4,8 +4,8 @@ class AppointmentsController < ApplicationController
   before_action :set_appointments, only: [:index, :show, :edit]
   before_action :set_client, only: [:index, :new, :edit]
   before_action :set_staff, only: [:index, :new, :edit]
-  devise_group :person, contains: [:user, :staff]
-  before_action :authenticate_person!
+  # devise_group :person, contains: [:user, :staff]
+  # before_action :authenticate_person!
 
 
   def index
@@ -46,7 +46,11 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment.destroy
-    redirect_to appointments_path
+    respond_to do |format|
+      format.html { redirect_to appointments_path }
+      format.js   { render :layout => false }
+    end
+
   end
 
   private

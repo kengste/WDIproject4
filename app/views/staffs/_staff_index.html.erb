@@ -1,0 +1,12 @@
+<div class="ui stackable three column doubling grid container">
+  <div class="column">
+    <p> <%= staff_name(staff) %></p>
+  </div>
+  <div class="column">
+    <p><%= staff_email(staff) %></p>
+  </div>
+  <div class="column">
+    <p><%= appointment_count(staff) %></p>
+    <p><%= link_to "New Appointment", new_staff_appointment_path(staff), class: "btn btn-primary" %></p>
+  </div>
+  </div>

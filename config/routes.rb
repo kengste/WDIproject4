@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
+  get 'staffs/index'
+
+  get 'staffs/show'
+
+  get 'schedules/new'
+
   devise_for :staffs, :path => 'accounts'
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  resources :schedules
+  resources :clients do
+    resources :schedules, only: [:index]
+  end
+
   resources :appointments
+
   resources :clients do
     resources :appointments, only: [:index, :show, :new]
   end

@@ -7,5 +7,9 @@ class Staff < ApplicationRecord
   has_many :appointments, dependent: :destroy
   has_many :clients, through: :appointments
 
+  def appointment_count
+    @appointment_count ||= appointments.count
+  end
+
   validates :first_name, presence: true
 end

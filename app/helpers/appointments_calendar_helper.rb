@@ -4,11 +4,11 @@ module AppointmentsCalendarHelper
   end
 
   def appointment_position(appointment)
-    "top: #{ ( ( (appointment.appointment_time - appointment.appointment_time.midnight)/3600 - 8 ) * 40 ) + 28}px;"
+    "top: 10px;"
   end
 
   def appointment_height(appointment)
-    "height: #{appointment.duration * 40/3600}px;"
+    "height: 40px;"
   end
 
   def highlight_appointment(appointment)

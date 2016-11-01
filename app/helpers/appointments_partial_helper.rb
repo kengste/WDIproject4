@@ -23,7 +23,7 @@ module AppointmentsPartialHelper
 
   def appointment_edit_delete_links(appointment)
     links = [link_to("Edit", edit_appointment_path(appointment) ),
-    link_to("Delete", appointment, method: :delete, data: { confirm: "Are you sure you want to delete this appointment?" } )]
+    link_to("Delete", appointment, method: :delete, data: { confirm: "Are you sure you want to delete this appointment?" }, :remote => true, :class => 'delete_appointment' )]
     safe_join(links, ", ")
   end
 

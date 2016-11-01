@@ -8,7 +8,7 @@ module AppointmentsAttributeHelper
   end
 
   def end_time(appointment)
-    appointment.end_time.strftime("%l:%M %p")
+    appointment.end_time.strftime("%b %d, %l:%M %p")
   end
 
   def show_duration(appointment)
