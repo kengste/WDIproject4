@@ -2,6 +2,7 @@
 <%= add_monthly_calendar(@appointments) %>
 </div>
 <br />
+<div id="newappointment">
 <p class="appointment_main"><%= link_to "Make a new booking", new_appointment_path %></p>
 <% if @upcoming_appointments.any? %>
 <p class="appointment_main">Upcoming Appointments</p>
@@ -9,3 +10,4 @@
 <% else %>
   <p class="appointment_main">No appointments yet.</p>
 <% end %>
+</div>

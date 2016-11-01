@@ -3,7 +3,6 @@
 
       <% if user_signed_in? %>
       <span class="item"><%= link_to "Home", root_path %></span>
-      <span class="item"><%= "Welcome, " + current_user.first_name %>!</span>
       <span class="item"><%= link_to "Clients", clients_path %></span>
       <span class="item"><%= link_to "Associates", staffs_path %></span>
       <span class="item"><%= link_to "Appointments", appointments_path %></span>
@@ -15,15 +14,16 @@
 
     <% elsif staff_signed_in? %>
     <span class="item"><%= link_to "Home", root_path %></span>
-    <span class="item">Welcome, <%= current_staff.first_name %>!</span>
     <span class="item"><%= link_to "Clients", clients_path %></span>
     <span class="item">Employees</span>
     <span class="item"><%= link_to "Assignments", schedules_path %></span>
   <% end %>
   <div class="right menu">
   <% if user_signed_in? %>
+  <span class="item"><%= "Welcome, " + current_user.first_name %>!</span>
   <span class="ui item"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></span>
   <% elsif staff_signed_in? %>
+  <span class="item">Welcome, <%= current_staff.first_name %>!</span>
   <span class="ui item"><%= link_to "Sign out", destroy_staff_session_path, method: :delete %></span>
   <% else %>
   <span class="ui item"><%= link_to "User Sign in", new_user_session_path %></span>
