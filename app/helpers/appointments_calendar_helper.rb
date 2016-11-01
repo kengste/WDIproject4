@@ -1,6 +1,6 @@
 module AppointmentsCalendarHelper
-  def add_weekly_calendar(appointments)
-    render partial: "simple_calendar/weekly_calendar_appointments", locals: { appointments: appointments }
+  def add_monthly_calendar(appointments)
+    render partial: "monthly_calendar_appointments", locals: { appointments: @appointments }
   end
 
   def appointment_position(appointment)

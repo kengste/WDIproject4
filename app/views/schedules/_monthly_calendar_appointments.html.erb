@@ -1,0 +1,14 @@
+<%= month_calendar events: appointments do |date, appointments| %>
+
+  <% appointments.each do |appointment| %>
+    <div class="appointment<%= highlight_appointment(appointment) %>" style="<%= appointment_position(appointment) %> <%= appointment_height(appointment) %>">
+      <% if current_user %>
+      <%= link_to(appointment_text(appointment), edit_appointment_path(appointment) ) %>
+      <% elsif current_staff %>
+      <%= appointment_text(appointment) %>
+      <% else %>
+      <%= appointment_text(appointment) %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

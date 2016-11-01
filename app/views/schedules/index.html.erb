@@ -1,5 +1,7 @@
 <h1>Assignments</h1>
-<%= add_weekly_calendar(@appointments) %>
+<div id="events_calendar">
+<%= add_monthly_calendar(@appointments) %>
+</div>
 <h3>Upcoming Assignments - <%=current_staff.first_name%></h3>
 <% if @upcoming_schedules.any? %>
   <% @upcoming_schedules.each_with_index do |i, index| %>

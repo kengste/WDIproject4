@@ -1,4 +1,6 @@
-<%= add_weekly_calendar(@appointments) %>
+<div id="events_calendar">
+<%= add_monthly_calendar(@appointments) %>
+</div>
 <br />
 <p class="appointment_main"><%= link_to "Make a new booking", new_appointment_path %></p>
 <% if @upcoming_appointments.any? %>
