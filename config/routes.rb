@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
-  get 'appointments/edit'
-
-  get 'appointments/index'
-
-  get 'appointments/new'
-
-  get 'appointments/show'
-  devise_for :staffs, :path => 'accounts', controllers: { sessions: 'staffs/sessions' }
+  devise_for :staffs, :path => 'accounts'
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :appointments

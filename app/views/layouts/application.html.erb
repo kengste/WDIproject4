@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Tracked</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Tracked</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
 
-  <body>
-    <%= render "layouts/navbar" %>
-    <%= yield %>
-    <!-- <%= month_calendar do |date| %>
-      <%= date %>
-    <% end %> -->
-  </body>
+<body>
+  <%= render "layouts/navbar" %>
+  <%= yield %>
+  <script type="text/javascript">
+  $( function() {
+    $( ".datepicker" ).datepicker();
+  } );
+  </script>
+</body>
 </html>

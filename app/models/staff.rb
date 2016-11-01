@@ -6,4 +6,6 @@ class Staff < ApplicationRecord
   belongs_to :user
   has_many :appointments, dependent: :destroy
   has_many :clients, through: :appointments
+
+  validates :first_name, presence: true
 end

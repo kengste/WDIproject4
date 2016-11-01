@@ -67,4 +67,54 @@ class Appointment < ApplicationRecord
     hash["hour"].to_i + hash["min"].to_i
   end
 
+  #validation
+
+  validates :duration, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :appointment_time, presence: { message: "must be a valid date" }
+  validates :client_id, presence: true
+  validates :staff_id, presence: true
+
+  validate :time_still_valid
+
+  def time_still_valid
+    AppointmentTimeValidator.new(self).validate
+  end
+
+  include ActiveModel::Validations
+
+  class AppointmentTimeValidator
+    def initialize(appointment)
+      @appointment = appointment
+      @user = appointment.user
+    end
+
+    def validate
+      if @appointment.appointment_time
+        # selects the user's appointments from yesterday,
+        # today and tomorrow
+        appointments = @user.appointments.select { |a| a.appointment_time.midnight == @appointment.appointment_time.midnight || a.appointment_time.midnight == @appointment.appointment_time - 1.day || a.appointment_time.midnight == @appointment.appointment_time + 1.day }
+        # makes sure that current appointments don't overlap
+        # first checks if an existing appointment is still
+        # in progress when the new appointment is set to start
+        # next checks if the new appointment would still be in
+        # progress when an existing appointment is set to start
+        appointments.each do |appointment|
+          if @appointment != appointment
+            if appointment.appointment_time <= @appointment.appointment_time && @appointment.appointment_time <= appointment.end_time || @appointment.appointment_time <= appointment.appointment_time && appointment.appointment_time <= @appointment.end_time
+              @appointment.errors.add(:appointment_time, "is not available.")
+            end
+          end
+        end
+      end
+
+    end
+
+  end
+
+  validate do |appointment|
+    AppointmentTimeValidator.new(appointment).validate
+  end
+
+
+
 end

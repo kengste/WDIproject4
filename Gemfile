@@ -19,7 +19,6 @@ gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', github: 'sferik/rails_admin'
 gem 'rails_admin_rollincode', '~> 1.0'
 gem "devise"
-gem 'cancancan', '~> 1.10'
 gem 'rolify'
 gem "simple_calendar"
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
