@@ -1,7 +1,7 @@
 module AppointmentsFormHelper
   def client_fields(form, appointment, client)
     if client
-      output = [content_tag(:h3, "with #{client.name}"), hidden_field_tag("appointment[client_id]", client.id)]
+      output = [content_tag(:b, "Client: #{client.name}"), content_tag(:p, ""), hidden_field_tag("appointment[client_id]", client.id)]
       safe_join(output)
     else
       render partial: "client_fields", locals: { f: form, appointment: appointment }
@@ -29,7 +29,7 @@ module AppointmentsFormHelper
     time_choices = {
      "8 AM" => 8
     }
-    select_tag(name, options_for_select(time_choices, time_choices[appointment_hour(appointment)] ) )
+    hidden_field_tag(name, options_for_select(time_choices, time_choices[appointment_hour(appointment)] ) )
   end
 
   def appointment_hour(appointment)
@@ -42,7 +42,7 @@ module AppointmentsFormHelper
 
   def min_selector(name, appointment)
     min_choices = ["00"]
-    select_tag(name, options_for_select(min_choices, appointment_min(appointment) ) )
+    hidden_field_tag(name, options_for_select(min_choices, appointment_min(appointment) ) )
   end
 
   def appointment_min(appointment)
@@ -59,7 +59,9 @@ module AppointmentsFormHelper
       "2 days" => "118800",
       "3 days" => "205200",
       "4 days" => "291600",
-      "5 days" => "378000"
+      "5 days" => "378000",
+      "6 days" => "464400",
+      "7 days" => "550800"
     }
     select_tag(name, options_for_select(options, get_duration_hour(appointment) ) )
   end
@@ -68,7 +70,7 @@ module AppointmentsFormHelper
     options = {
       "00 min" => "0"
     }
-    select_tag(name, options_for_select(options, get_duration_min(appointment) ) )
+    hidden_field_tag(name, options_for_select(options, get_duration_min(appointment) ) )
   end
 
   def get_duration_hour(appointment)

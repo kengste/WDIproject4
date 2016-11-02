@@ -18,7 +18,7 @@ module AppointmentsCalendarHelper
   end
 
   def appointment_text(appointment)
-    "<span class='name'>#{appointment.client_name}</span>".html_safe
+    "<span class='name'>#{appointment.staff_name} - #{appointment.client_name}</span>".html_safe
   end
 
   def from_to(appointment)

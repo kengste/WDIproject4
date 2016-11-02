@@ -1,6 +1,12 @@
-<div id="events_calendar">
-<%= add_monthly_calendar(@appointments) %>
+<div class="ui grid container">
+<div class="twelve wide column">
+  <div id="events_calendar">
+    <%= add_monthly_calendar(@appointments) %>
+  </div>
+  <p class="appointment_main"><%= link_to "Make a new booking", new_appointment_path, :remote => true %></p>
 </div>
-<br />
-<p class="appointment_main"><%= link_to "Make a new booking", new_appointment_path, :remote => true %></p>
-<%= render partial: "newappointment" %>
+  <div class="four wide column">
+    <br />
+    <%= render partial: "newappointment" %>
+  </div>
+</div>

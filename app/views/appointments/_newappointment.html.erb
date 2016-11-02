@@ -1,7 +1,7 @@
-<div id="newappointment">
-  
+<div id="newappointment" class="ui container">
+
 <% if @upcoming_appointments.any? %>
-<p class="appointment_main">Upcoming Appointments</p>
+<p class="appointment_main"><b>Upcoming Appointments</b></p>
   <%= render @upcoming_appointments %>
 <% else %>
   <p class="appointment_main">No appointments yet.</p>

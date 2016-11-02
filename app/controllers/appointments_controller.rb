@@ -13,7 +13,7 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    @appointments = current_user.appointments
+    @appointments = current_user.appointments.select { |a| a.persisted? }
     @appointment = current_user.appointments.build
   end
 

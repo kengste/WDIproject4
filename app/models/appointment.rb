@@ -86,13 +86,14 @@ class Appointment < ApplicationRecord
     def initialize(appointment)
       @appointment = appointment
       @user = appointment.user
+      @staff = appointment.staff
     end
 
     def validate
       if @appointment.appointment_time
         # selects the user's appointments from yesterday,
         # today and tomorrow
-        appointments = @user.appointments.select { |a| a.appointment_time.midnight == @appointment.appointment_time.midnight || a.appointment_time.midnight == @appointment.appointment_time - 1.day || a.appointment_time.midnight == @appointment.appointment_time + 1.day }
+        appointments = @staff.appointments.select { |a| a.appointment_time.midnight == @appointment.appointment_time.midnight || a.appointment_time.midnight == @appointment.appointment_time - 1.day || a.appointment_time.midnight == @appointment.appointment_time + 1.day }
         # makes sure that current appointments don't overlap
         # first checks if an existing appointment is still
         # in progress when the new appointment is set to start

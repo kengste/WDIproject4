@@ -1,10 +1,14 @@
 <div class="ui grid container">
-  <div id="events_calendar">
+  <div class="twelve wide column">
+    <div id="events_calendar">
     <%= add_monthly_calendar(@appointments) %>
   </div>
+</div>
 
   <div class="four wide column">
-    <h1>New Appointment</h1>
+    <br />
+    <b>Create a new appointment</b>
+    <p></p>
     <%= render partial: 'form', locals: { appointment: @appointment, client: @client, staff: @staff } %>
   </div>
 </div>

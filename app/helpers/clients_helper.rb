@@ -18,5 +18,5 @@ module ClientsHelper
   def appointment_count(client)
     link_to "Total Appointments: #{client.appointment_count}", client_path(client)
   end
-  
+
 end

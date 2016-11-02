@@ -1,21 +1,22 @@
-<h1>Clients </h1>
-<%= @clients.inspect %>
+<div class="ui container">
+<p />
 <% if @clients.any? %>
 <div class="ui stackable four column doubling grid container">
-  <div class="blue column">
-    <h3>Name</h3>
+  <div class="column">
+    <b>Name</b>
   </div>
-  <div class="teal column">
-    <h3>Email</h3>
+  <div class="column">
+    <b>Email</b>
   </div>
-  <div class="brown column">
-    <h3>Phone #</h3>
+  <div class="column">
+    <b>Phone #</b>
   </div>
-  <div class="yellow column">
-    <h3>Appointments</h3>
+  <div class="column">
+    <b>Appointments</b>
   </div>
 </div>
 <% else %>
 <p>No clients yet.</p>
 <% end %>
 <%= render partial: "client_index", collection: @clients, as: :client %>
+</div>
