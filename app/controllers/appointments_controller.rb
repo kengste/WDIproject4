@@ -5,7 +5,6 @@ class AppointmentsController < ApplicationController
   before_action :set_client, only: [:index, :new, :edit]
   before_action :set_staff, only: [:index, :new, :edit]
 
-
   def index
     @upcoming_appointments = current_user.upcoming_appointments
   end
@@ -14,7 +13,7 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    @appointments = current_user.appointments.select { |a| a.persisted? }
+    @appointments = current_user.appointments
     @appointment = current_user.appointments.build
   end
 

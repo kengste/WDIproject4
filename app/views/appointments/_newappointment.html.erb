@@ -1,0 +1,9 @@
+<div id="newappointment">
+  
+<% if @upcoming_appointments.any? %>
+<p class="appointment_main">Upcoming Appointments</p>
+  <%= render @upcoming_appointments %>
+<% else %>
+  <p class="appointment_main">No appointments yet.</p>
+<% end %>
+</div>
