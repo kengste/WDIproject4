@@ -2,7 +2,9 @@
 
 <% if @upcoming_appointments.any? %>
 <p class="appointment_main"><b>Upcoming Appointments</b></p>
+<div id="scrollbox">
   <%= render @upcoming_appointments %>
+</div>
 <% else %>
   <p class="appointment_main">No appointments yet.</p>
 <% end %>

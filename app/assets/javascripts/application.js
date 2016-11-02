@@ -19,5 +19,5 @@ $(function () {
   $("#events_calendar").on("click", "td", function() {
     console.log($(this).text());
     $( "#selectDate" ).val($(this).children('.datehidden').text().trim())
-  })
+  });
 });

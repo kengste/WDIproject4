@@ -1,10 +1,12 @@
 class ClientsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_client, only: [:show, :edit, :update, :destroy]
+  devise_group :person, contains: [:user, :staff]
+  before_action :authenticate_person!
 
   def index
     @clients = []
-    @clients = current_user.clients if current_user
+    @clients = current_person.clients if current_person
   end
 
   def show

@@ -18,7 +18,12 @@ module AppointmentsCalendarHelper
   end
 
   def appointment_text(appointment)
+    if current_user
     "<span class='name'>#{appointment.staff_name} - #{appointment.client_name}</span>".html_safe
+    elsif current_staff
+    "<span class='name'>#{appointment.client_name}</span>".html_safe
+    else
+    end
   end
 
   def from_to(appointment)
