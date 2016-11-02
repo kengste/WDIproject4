@@ -1,5 +1,3 @@
-<h4>
-  <%= link_to appointment.client_name, appointment_path(appointment) %>
-  <br />
-  <%= short_time(appointment) %>-<%= end_time(appointment) %>
-</h4>
+<%= link_to appointment.client_name, appointment_path(appointment) %>
+<br />
+<%= short_time(appointment) %>-<%= end_time(appointment) %>

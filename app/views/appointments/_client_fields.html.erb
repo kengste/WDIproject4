@@ -1,7 +1,7 @@
 <% if current_user.clients.any? %>
 <div class="field">
   <p>
-    <b>Create a new appointment</b>
+    <b>Booking Details</b>
     <p />
     <%= label_tag :client %>
     <%= collection_select :appointment, :client_id, current_user.clients, :id, :name, { prompt: true } %>

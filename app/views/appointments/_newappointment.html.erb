@@ -2,7 +2,7 @@
 
 <% if @upcoming_appointments.any? %>
 <p class="appointment_main"><b>Upcoming Appointments</b></p>
-<div id="scrollbox">
+<div class="ui table" style="overflow-y: scroll; height: 20em;">
   <%= render @upcoming_appointments %>
 </div>
 <% else %>
