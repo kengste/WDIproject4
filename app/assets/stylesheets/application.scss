@@ -73,16 +73,6 @@ b {
   background: #f5f5f4;
 }
 
-//
-// width: 100%;
-// background: red;
-// margin: 1em 0em;
-// border: 1px solid rgba(34, 36, 38, 0.15);
-// box-shadow: none;
-// border-radius: 0.28571429rem;
-// border-spacing: 0px;
-// }
-
 .ui.table thead th {
     cursor: auto;
     text-align: inherit;
@@ -119,4 +109,14 @@ b {
 .tracked_icon {
   font-size: 2em;
   font-weight: bolder;
+}
+.user_login {
+  // left: 0;
+  // line-height: 200px;
+  padding-top: 10%;
+  // position: absolute;
+  padding-left: 35%;
+  width: 100%;
+  color: black !important; 
+  // // text-align: center;
 }
