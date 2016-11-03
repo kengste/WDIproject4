@@ -2,4 +2,4 @@
 
 * Screenshot
 
-![Alt text](/relative/path/to/app_screenshot.png?raw=true "Screenshot")
+![Screenshot](/app_screenshot.png?raw=true "Screenshot")
