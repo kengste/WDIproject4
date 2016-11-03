@@ -1,4 +1,5 @@
 <%= render partial: "layouts/errors", locals: { object: appointment } %>
+<div class="appointmentform">
 <%= form_for appointment do |f| %>
 <p><b>Booking details</b></p>
   <%= client_fields(f, appointment, client) %>
@@ -25,5 +26,5 @@
     <%= staff_fields(f, appointment, staff) %>
   <br />
   <p><%= f.submit %></p>
-</button>
 <% end %>
+</div>

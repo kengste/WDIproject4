@@ -8,9 +8,9 @@
     <span class="navgateright four wide column"><%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, remote: true %></span>
   </div>
 
-  <table class="ui purple fixed table unstackable">
+  <table class="ui fixed table unstackable">
     <thead>
-      <tr class="teal inverted">
+      <tr class="inverted">
         <% date_range.slice(0, 7).each do |day| %>
           <th><%= t('date.abbr_day_names')[day.wday] %></th>
         <% end %>

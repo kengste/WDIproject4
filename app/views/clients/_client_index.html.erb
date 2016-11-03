@@ -1,7 +1,7 @@
 <% if current_user %>
-<span> <%= client_name(client) %></span><br />
+<span><i class="caret right icon"></i> <%= client_name(client) %></span><br />
 <% elsif current_staff %>
-<span> <%= client.name %></span><br />
+<span><i class="caret right icon"></i> <%= client.name %></span><br />
 <% else %>
 <% end %>
 

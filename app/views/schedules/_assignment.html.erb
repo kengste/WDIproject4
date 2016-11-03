@@ -1,6 +1,6 @@
 <div id="newappointment"  class="ui container">
 <% if @upcoming_schedules.any? %>
-<p class="appointment_main"><b>Upcoming Appointments</b></p>
+<p><b>Upcoming assignments</b> <a class="ui black circular label"><%= @upcoming_schedules.length %></a></p>
 <div class="ui table" style="overflow-y: scroll; height: 20em;">
   <%= render @upcoming_schedules %>
 </div>

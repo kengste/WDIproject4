@@ -1,5 +1,5 @@
 <% if staffs.any? %>
-<p class="appointment_main"><b>Staffs</b></p>
+<p><b>Existing staffs</b> <a class="ui black circular label"><%= staffs.length %></a></p>
 <div class="ui table" style="overflow-y: scroll; height: 16em;">
 <%= render partial: "staff_index", collection: staffs, as: :staff %>
 </div>

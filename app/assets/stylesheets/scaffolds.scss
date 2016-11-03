@@ -1,6 +1,6 @@
 body {
-  background-color: transparent;
-  color: grey;
+  background-color: #fafafa !important;
+  color: rgb(255, 75, 52) !important;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -21,16 +21,16 @@ pre {
 }
 
 a {
-  color: pink;
+  color: #58898D !important;
 
   &:visited {
-    color: red;
+    // color: black;
   }
 
-  // &:hover {
-  //   color: #fff;
-  //   background-color: #000;
-  // }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
 }
 
 th {
@@ -75,7 +75,7 @@ div {
     margin: -7px;
     margin-bottom: 0;
     background-color: #c00;
-    color: blue
+    color: rgb(255, 75, 52)
   }
 
   ul li {

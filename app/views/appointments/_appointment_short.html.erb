@@ -1,3 +1,5 @@
-<%= link_to appointment.client_name, appointment_path(appointment) %>
+<i class="checked calendar icon"></i><%= link_to appointment.client_name, appointment_path(appointment) %>
 <br />
-<%= short_time(appointment) %>-<%= end_time(appointment) %>
+<small>Staff booked: <%= appointment.staff.first_name %> <%= appointment.staff.last_name %></small>
+<br />
+<small>Duration: <%= short_time(appointment) %>-<%= end_time(appointment) %></small>

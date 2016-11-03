@@ -2,18 +2,19 @@
   <% if current_user %>
   <%= appointment_heading(appointment) %>
   <% elsif current_staff %>
-  <%= link_to("<span>#{appointment.client_name}</span>".html_safe, client_path(appointment), :remote => true ) %>
+  <i class="checked calendar icon"></i><%= link_to("<span>#{appointment.client_name}</span>".html_safe, client_path(appointment), :remote => true ) %>
   <br />
-  <%= short_time(appointment) %>-<%= end_time(appointment) %>
+  <small>Duration: <%= short_time(appointment) %>-<%= end_time(appointment) %></small>
   <br />
-  Manager: <%= appointment.user.first_name %> <%= appointment.user.last_name %>
+  <small>Manager: <%= appointment.user.first_name %> <%= appointment.user.last_name %></small>
   <% else %>
   <% end %>
 
   <% if current_user %>
+  <br />
   <small><%= appointment_edit_delete_links(appointment) %></small>
   <% end %>
-  
+
   <br />
   <br />
 </div>

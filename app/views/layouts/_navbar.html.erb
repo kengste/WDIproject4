@@ -3,8 +3,10 @@
 
       <% if user_signed_in? %>
       <span class="item"><%= link_to "Home", appointments_path %></span>
-      <span class="item"><%= link_to "Clients", clients_path, :remote => true %></span>
-      <span class="item"><%= link_to "Staffs", staffs_path, :remote => true %></span>
+      <span class="item"><%= link_to "Client Listing", clients_path, :remote => true %></span>
+      <span class="item"><%= link_to "Staff Listing", staffs_path, :remote => true %></span>
+      <span class="item"><%= link_to "New Booking", new_appointment_path, :remote => true %></span>
+
       <% if current_user.try(:admin?) %>
       <span class="item">
       <%= link_to "Admin", rails_admin_path %>
@@ -12,8 +14,10 @@
       <% end %>
 
     <% elsif staff_signed_in? %>
-    <span class="item"><%= link_to "Home", root_path %></span>
-    <span class="item"><%= link_to "Assignments", schedules_path %></span>
+    <span class="item"><%= link_to "Home", schedules_path %></span>
+    <span class="item"><%= link_to "Clients", clients_path, :remote => true %></span>
+    <% else %>
+    <span class="tracked_icon item"><i class="spy icon"></i>TRACKED</span>
   <% end %>
   <div class="right menu">
   <% if user_signed_in? %>
@@ -23,8 +27,8 @@
   <span class="item">Welcome, <%= current_staff.first_name %>!</span>
   <span class="ui item"><%= link_to "Sign out", destroy_staff_session_path, method: :delete %></span>
   <% else %>
-  <span class="ui item"><i class="fa fa-sign-in" style="color:white" aria-hidden="true"></i> <%= link_to "USER LOG IN", new_user_session_path %></span>
-  <span class="ui item"><i class="fa fa-sign-in" style="color:white" aria-hidden="true"></i> <%= link_to "STAFF LOG IN", new_staff_session_path %></span>
+  <span class="ui item"> <%= link_to "USER LOGIN", new_user_session_path, :class => "entry" %></span>
+  <span class="ui item"> <%= link_to "STAFF LOGIN", new_staff_session_path, :class => "entry" %></span>
   <% end %>
 
   </div>

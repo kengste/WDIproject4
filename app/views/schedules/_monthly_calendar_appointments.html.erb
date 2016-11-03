@@ -3,7 +3,7 @@
   <% appointments.each do |appointment| %>
     <div class="appointment<%= highlight_appointment(appointment) %>">
       <% if current_staff %>
-      <%= link_to(appointment_text(appointment), client_path(appointment), :remote => true ) %>
+      <%= link_to(appointment_text(appointment), client_path(appointment.client_id), :remote => true ) %>
       <% else %>
       <%= appointment_text(appointment) %>
       <% end %>
