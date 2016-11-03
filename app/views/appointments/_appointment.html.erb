@@ -1,7 +1,19 @@
 <div class="appointment">
+  <% if current_user %>
   <%= appointment_heading(appointment) %>
-  <%= appointment_details(appointment) %><br />
+  <% elsif current_staff %>
+  <%= link_to("<span>#{appointment.client_name}</span>".html_safe, client_path(appointment), :remote => true ) %>
+  <br />
+  <%= short_time(appointment) %>-<%= end_time(appointment) %>
+  <br />
+  Manager: <%= appointment.user.first_name %> <%= appointment.user.last_name %>
+  <% else %>
+  <% end %>
+
+  <% if current_user %>
   <small><%= appointment_edit_delete_links(appointment) %></small>
+  <% end %>
+  
   <br />
   <br />
 </div>

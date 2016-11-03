@@ -1,22 +1,4 @@
 <div id="newappointment"  class="ui container">
-<h3>Upcoming Assignments - <%=current_staff.first_name%></h3>
-<% if @upcoming_schedules.any? %>
-  <% @upcoming_schedules.each_with_index do |i, index| %>
-  <b>Assigment <%="#{index+1}"%>: </b><%= i.client.name %>
-  <br />
-  <b>Start time: </b><%= i.appointment_time.strftime("%A %B %e %l:%M %p") %>
-  <br />
-  <b>End time: </b><%= i.end_time.strftime("%A %B %e %l:%M %p") %>
-  <br />
-  <b>Manager-in-charge: </b><%= i.user.first_name %>
-  <br />
-  <br />
-  <% end %>
-<% else %>
-  <p>No appointments yet.</p>
-<% end %>
-</div>
-
 <% if @upcoming_schedules.any? %>
 <p class="appointment_main"><b>Upcoming Appointments</b></p>
 <div class="ui table" style="overflow-y: scroll; height: 20em;">
