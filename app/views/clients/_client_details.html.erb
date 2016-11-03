@@ -1,0 +1,13 @@
+<div class="ui container">
+<% if clients.any? %>
+<p class="appointment_main"><b>Clients</b></p>
+<div class="ui table" style="overflow-y: scroll; height: 16em;">
+<%= render partial: "client_index", collection: clients, as: :client %>
+</div>
+<% else %>
+<% end %>
+<% if current_user %>
+<p class="appointment_main"><%= link_to "Add a new client", new_client_path, :remote => true %></p>
+<% else %>
+<% end %>
+</div>

@@ -1,9 +1,11 @@
 class AppointmentsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_appointment, only: [:show, :edit, :update, :destroy]
-  before_action :set_appointments, only: [:index, :show, :edit]
+  before_action :set_appointment, only: [:edit, :update, :destroy, :show]
+  before_action :set_appointments, only: [:index, :edit]
   before_action :set_client, only: [:index, :new, :edit]
   before_action :set_staff, only: [:index, :new, :edit]
+
+  before_action :authenticate_user!, except: [:show]
+
 
   def index
     @upcoming_appointments = current_user.upcoming_appointments
@@ -60,8 +62,8 @@ class AppointmentsController < ApplicationController
     @staff = current_user.staffs.find_by(id: params[:staff_id])
   end
 
-    def set_appointment
-    @appointment = current_user.appointments.find_by(id: params[:id])
+  def set_appointment
+    @appointment = Appointment.find_by(id: params[:id])
     if @appointment.nil?
       flash[:error] = "Appointment not found."
       redirect_to appointments_path

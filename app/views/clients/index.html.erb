@@ -1,8 +1,13 @@
 <div class="ui container">
 <p />
 <% if @clients.any? %>
+
+<% if current_user %>
 <div class="ui stackable four column doubling grid container">
-  <div class="column">
+  <% else %>
+  <div class="ui stackable three column doubling grid container">
+  <% end %>
+    <div class="column">
     <b>Name</b>
   </div>
   <div class="column">
@@ -11,9 +16,11 @@
   <div class="column">
     <b>Phone #</b>
   </div>
+  <% if current_user %>
   <div class="column">
     <b>Appointments</b>
   </div>
+  <% end %>
 </div>
 <% else %>
 <p>No clients yet.</p>

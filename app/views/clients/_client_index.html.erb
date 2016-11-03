@@ -1,15 +1,4 @@
-<div class="ui stackable four column doubling grid container">
-  <div class="column">
-    <p> <%= client_name(client) %></p>
-  </div>
-  <div class="column">
-    <p><%= client_email(client) %></p>
-  </div>
-  <div class="column">
-    <p><%= client_phone(client) %> </p>
-  </div>
-  <div class="column">
-    <p><%= link_to "Total Appointments: #{client.appointment_count}", client_path(client) %></p>
-    <p><%= link_to "New Appointment", new_client_appointment_path(client), class: "btn btn-primary" %></p>
-  </div>
-  </div>
+<span> <%= client_name(client) %></span><br />
+<small><%= link_to "Client details", client_path(client), :remote => true %></small>
+<br />
+<p />

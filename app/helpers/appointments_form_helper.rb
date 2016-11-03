@@ -1,7 +1,7 @@
 module AppointmentsFormHelper
   def client_fields(form, appointment, client)
     if client
-      output = [content_tag(:b, "Client: #{client.name}"), content_tag(:p, ""), hidden_field_tag("appointment[client_id]", client.id)]
+      output = [content_tag(:p, "Client: #{client.name}"), content_tag(:p, ""), hidden_field_tag("appointment[client_id]", client.id)]
       safe_join(output)
     else
       render partial: "client_fields", locals: { f: form, appointment: appointment }
@@ -10,7 +10,7 @@ module AppointmentsFormHelper
 
   def staff_fields(form, appointment, staff)
     if staff
-      output = [content_tag(:h3, "at #{staff.first_name}"), hidden_field_tag("appointment[staff_id]", staff.id)]
+      output = [content_tag(:div, "Staff: #{staff.first_name} #{staff.last_name}"), hidden_field_tag("appointment[staff_id]", staff.id)]
       safe_join(output)
     else
       render partial: "staff_fields", locals: { f: form, appointment: appointment }

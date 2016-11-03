@@ -15,3 +15,29 @@
  *= require simple_calendar
  */
 @import "semantic-ui";
+
+#welcome {
+  font-family: 'Scope One', serif;
+  color: white;
+  font-size: 68px;
+  left: 0;
+  line-height: 200px;
+  margin-top: -100px;
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  text-align: center;
+}
+
+.splash {
+  background: url(/assets/background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+
+.ui.menu {
+  background: transparent;
+}

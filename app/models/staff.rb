@@ -6,6 +6,8 @@ class Staff < ApplicationRecord
   belongs_to :user
   has_many :appointments, dependent: :destroy
   has_many :clients, through: :appointments
+  has_many :users, through: :appointments
+
 
   def appointment_count
     @appointment_count ||= appointments.count

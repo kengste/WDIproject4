@@ -1,0 +1,8 @@
+<% if staffs.any? %>
+<p class="appointment_main"><b>Staffs</b></p>
+<div class="ui table" style="overflow-y: scroll; height: 16em;">
+<%= render partial: "staff_index", collection: staffs, as: :staff %>
+</div>
+<% else %>
+<p class="appointment_main">No staffs yet.</p>
+<% end %>

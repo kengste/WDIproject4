@@ -2,7 +2,7 @@ class SchedulesController < ApplicationController
   before_action :authenticate_staff!
   # before_action :set_appointment, only: [:show, :edit, :update, :destroy]
   before_action :set_appointments, only: [:index]
-  before_action :set_client, only: [:index]
+  before_action :set_client, only: [:index, :show]
 
   def index
     @upcoming_schedules = current_staff.appointments.order(appointment_time: :asc).select { |a| a.appointment_time > (DateTime.now) }

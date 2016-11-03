@@ -1,6 +1,4 @@
-<% if current_user.staffs.any? %>
 <div class="field">
     <%= f.label :staff_id %>
-    <%= collection_select :appointment, :staff_id, current_user.staffs, :id, :first_name, {prompt: true } %>
+    <%= collection_select :appointment, :staff_id, Staff.all, :id, :first_name, {prompt: true } %>
 </div>
-<% end %>

@@ -9,7 +9,7 @@ module ClientsHelper
 
   def client_name(client)
     if current_page?(clients_path)
-      link_to client.name, client_path(client)
+      link_to client.name, new_client_appointment_path(client), :remote => true
     else
       client.name
     end

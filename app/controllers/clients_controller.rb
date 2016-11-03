@@ -22,7 +22,7 @@ class ClientsController < ApplicationController
     if @client.valid?
       @client.user = current_user
       @client.save
-      redirect_to clients_path
+      redirect_to appointments_path
     else
       render :new
     end
@@ -44,7 +44,7 @@ class ClientsController < ApplicationController
   private
 
   def set_client
-    @client = current_user.clients.find_by(id: params[:id])
+    @client = current_person.clients.find_by(id: params[:id])
     if @client.nil?
       flash[:error] = "Client not found."
       redirect_to clients_path

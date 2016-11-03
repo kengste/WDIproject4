@@ -2,7 +2,7 @@ class StaffsController < ApplicationController
   before_action :set_staff, only: [:show]
   def index
     @staffs = []
-    @staffs = current_user.staffs if current_user
+    @staffs = Staff.all
   end
 
   def show
@@ -12,7 +12,7 @@ class StaffsController < ApplicationController
   private
 
   def set_staff
-    @staff = current_user.staffs.find_by(id: params[:id])
+    @staff = Staff.all.find_by(id: params[:id])
     if @staff.nil?
       flash[:error] = "Staff not found."
       redirect_to staffs_path

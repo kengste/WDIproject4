@@ -1,11 +1,9 @@
 <%= month_calendar events: appointments do |date, appointments| %>
 <br>
   <% appointments.each do |appointment| %>
-    <span class="appointment<%= highlight_appointment(appointment) %>" style="<%= appointment_position(appointment) %> <%= appointment_height(appointment) %>">
+    <span class="appointment<%= highlight_appointment(appointment) %>">
       <% if current_user %>
       <%= link_to(appointment_text(appointment), edit_appointment_path(appointment), :remote => true ) %>
-      <% elsif current_staff %>
-      <%= appointment_text(appointment) %>
       <% else %>
       <%= appointment_text(appointment) %>
       <% end %>
