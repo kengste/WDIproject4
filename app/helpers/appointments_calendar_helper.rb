@@ -3,14 +3,6 @@ module AppointmentsCalendarHelper
     render partial: "monthly_calendar_appointments", locals: { appointments: @appointments }
   end
 
-  def appointment_position(appointment)
-    "top: 10px;"
-  end
-
-  def appointment_height(appointment)
-    "height: 40px;"
-  end
-
   def highlight_appointment(appointment)
     if current_page?( appointment_path(appointment)) || current_page?( edit_appointment_path(appointment) )
       " highlight"

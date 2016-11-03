@@ -1,37 +1,37 @@
 <nav>
   <div class="ui pointing menu container">
 
-      <% if user_signed_in? %>
-      <span class="item"><%= link_to "Home", appointments_path %></span>
-      <span class="item"><%= link_to "Client Listing", clients_path, :remote => true %></span>
-      <span class="item"><%= link_to "Staff Listing", staffs_path, :remote => true %></span>
-      <span class="item"><%= link_to "New Booking", new_appointment_path, :remote => true %></span>
+    <% if user_signed_in? %>
+    <span class="item"><%= link_to "Home", appointments_path %></span>
+    <span class="item"><%= link_to "Client Listing", clients_path, :remote => true %></span>
+    <span class="item"><%= link_to "Staff Listing", staffs_path, :remote => true %></span>
+    <span class="item"><%= link_to "New Booking", new_appointment_path, :remote => true %></span>
 
-      <% if current_user.try(:admin?) %>
-      <span class="item">
+    <% if current_user.try(:admin?) %>
+    <span class="item">
       <%= link_to "Admin", rails_admin_path %>
-      </span>
-      <% end %>
+    </span>
+    <% end %>
 
     <% elsif staff_signed_in? %>
     <span class="item"><%= link_to "Home", schedules_path %></span>
     <span class="item"><%= link_to "Clients", clients_path, :remote => true %></span>
     <% else %>
     <span class="tracked_icon item"><i class="spy icon"></i>TRACKED</span>
-  <% end %>
-  <div class="right menu">
-  <% if user_signed_in? %>
-  <span class="item"><%= "Welcome, " + current_user.first_name %>!</span>
-  <span class="ui item"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></span>
-  <% elsif staff_signed_in? %>
-  <span class="item">Welcome, <%= current_staff.first_name %>!</span>
-  <span class="ui item"><%= link_to "Sign out", destroy_staff_session_path, method: :delete %></span>
-  <% else %>
-  <span class="ui item"> <%= link_to "USER LOGIN", new_user_session_path, :class => "entry" %></span>
-  <span class="ui item"> <%= link_to "STAFF LOGIN", new_staff_session_path, :class => "entry" %></span>
-  <% end %>
+    <% end %>
+    <div class="right menu">
+      <% if user_signed_in? %>
+      <span class="item"><%= "Welcome, " + current_user.first_name %>!</span>
+      <span class="ui item"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></span>
+      <% elsif staff_signed_in? %>
+      <span class="item">Welcome, <%= current_staff.first_name %>!</span>
+      <span class="ui item"><%= link_to "Sign out", destroy_staff_session_path, method: :delete %></span>
+      <% else %>
+      <span class="ui item"> <%= link_to "USER LOGIN", new_user_session_path, :class => "entry" %></span>
+      <span class="ui item"> <%= link_to "STAFF LOGIN", new_staff_session_path, :class => "entry" %></span>
+      <% end %>
 
-  </div>
+    </div>
 
 
   </div>
