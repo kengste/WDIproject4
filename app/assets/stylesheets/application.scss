@@ -53,7 +53,7 @@
 }
 
 .splash {
-  background: url(/assets/background2.jpg) no-repeat center center fixed;
+  background: image-url('background2.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -117,6 +117,6 @@ b {
   // position: absolute;
   padding-left: 35%;
   width: 100%;
-  color: black !important; 
+  color: black !important;
   // // text-align: center;
 }
